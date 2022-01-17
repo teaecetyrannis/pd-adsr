@@ -46,7 +46,7 @@ formatted to be sent back into the abstraction \, in other words plug
 this outlet to a message and when the [state( mesage is received it
 will save to it the current state of the abstraction (keep in mind
 that the message box will be emptied before writing to it);
-#X obj 38 161 cnv 15 541 236 empty empty empty 20 12 0 14 -203904 -66577
+#X obj 38 161 cnv 15 541 226 empty empty empty 20 12 0 14 -203904 -66577
 0;
 #X obj 38 71 cnv 15 484 50 empty empty empty 20 12 0 14 -203904 -66577
 0;
@@ -63,28 +63,27 @@ of the possibility of distortion or phase inversion);
 #X text 35 137 INLET 1:;
 #X text 102 171 attack time in ms;
 #X text 102 200 decay time in ms;
-#X text 102 227 sustain value (between 0 and 1 \, otherwise distortion
-or phase inversion could occur);
 #X text 101 268 release time in ms;
 #X msg 48 297 legato \$1;
 #X text 123 297 turns legato on and off (nonzero and 0 respectively)
 ;
-#X msg 48 326 anticlick \$1;
-#X text 144 319 makes a 10ms ramp to 0 before attacking again when
-legato is turned off to avoid clicks (nonzero and 0 respectively) 1.[float]
-attack time in ms;
+#X msg 48 328 anticlick \$1;
 #X msg 48 171 att \$1;
 #X msg 48 200 dec \$1;
 #X msg 48 234 sus \$1;
 #X msg 48 268 rel \$1;
-#X text 95 368 save current state of the abstraction;
-#X msg 48 368 state;
-#X connect 18 0 20 0;
-#X connect 20 0 27 0;
+#X text 95 358 save current state of the abstraction;
+#X msg 48 358 state;
+#X text 144 321 makes a 10ms ramp to 0 before attacking again when
+legato is turned off to avoid clicks (nonzero and 0 respectively);
+#X text 102 227 sustain value (again between 0 and 1 \, otherwise distortion
+or phase inversion could occur);
+#X connect 17 0 19 0;
+#X connect 19 0 25 0;
+#X connect 20 0 21 0;
+#X connect 21 0 22 0;
 #X connect 22 0 23 0;
-#X connect 23 0 24 0;
-#X connect 24 0 25 0;
-#X connect 25 0 18 0;
+#X connect 23 0 17 0;
 #X restore 18 23 pd help;
 #X obj 543 147 r \$0-state;
 #X obj 543 176 outlet;
