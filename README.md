@@ -18,3 +18,11 @@ descargar el archivo adsr.zip de la [última release](https://github.com/teaecet
     - `[legato $1(` prende o apaga el legato (valor distinto a cero y cero, respectivamente)
     - `[anticlick $1(` prende o apaga (valor distinto a cero y cero, respectivamente) una rampa a 0 de 10ms antes de atacar nuevamente cuando legato está apagado que sirve para evitar generar clicks por el inmediato salto al 0 que se da cuando está apagado
     - `[state(` escribir en un mensaje el estado actual de la abstracción
+
+
+## documentación
+en el subparche `[pd help]` dentro de adsr~.pd se encuentra (en inglés) toda esta misma información y más
+
+
+## créditos
+[pure data](https://github.com/pure-data/pure-data) por miller puckette y muchxs más
