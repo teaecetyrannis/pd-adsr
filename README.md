@@ -5,7 +5,7 @@ objeto para generar envolventes adsr, inspirado en el objeto adsr~ de max/msp, d
 
 
 ## instalación
-descargar el archivo adsr.zip de la [última release](https://github.com/teaecetyrannis/adsr/releases/tag/v1.0), extraer y agregar la carpeta contenedora al path de pure data, luego se puede iniciar desde cualquier parche creando el objeto `[adsr~]`
+descargar el archivo adsr.zip de la [última release](https://github.com/teaecetyrannis/pd-adsr/releases/tag/v1.0), extraer y agregar la carpeta contenedora al path de pure data, luego se puede iniciar desde cualquier parche creando el objeto `[adsr~]`
 
 
 ## funcionamiento
