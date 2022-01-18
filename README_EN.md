@@ -8,7 +8,6 @@ object for generating adsr envelopes, inspired by the adsr~ object from max/msp,
 download the adsr.zip from the [last release](https://github.com/teaecetyrannis/pd-adsr/releases), extract and add tge containing folder to pure data path, then it can be started in any patch by creating the `[granola~]` object
 
 
-
 ## operation
 - the first inlet recives velocity (between 0 y 1, unless not scared of the possibility of distortion or phase inversion if using bigger or negative numbers respectively)
 - the second inlet can take a series of messagess:
