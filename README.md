@@ -1,5 +1,5 @@
 # adsr
-[read in english](https://github.com/teaecetyrannis/adsr/blob/main/README_EN.md)
+[read in english](https://github.com/teaecetyrannis/pd-adsr/blob/main/README_EN.md)
 <br><br>
 objeto para generar envolventes adsr, inspirado en el objeto adsr~ de max/msp, desarrollado en [pure data](https://github.com/pure-data/pure-data)
 
