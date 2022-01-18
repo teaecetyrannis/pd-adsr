@@ -16,7 +16,7 @@ descargar el archivo adsr.zip de la [última release](https://github.com/teaecet
     - `[sus $1(` valor del sostenimiento (otra vez entre 0 y 1, de otra manera podría ocurrir distorsión o inversión de fase)
     - `[rel $1(` tiempo de relajamiento en ms
     - `[legato $1(` prende o apaga el legato (valor distinto a cero y cero, respectivamente)
-    - `[anticlick $1(` prende o apaga (valor distinto a cero y cero, respectivamente) una rampa a 0 de 10ms antes de atacar nuevamente cuando legato está apagado que sirve para evitar generar clicks por el inmediato salto al 0 que se da cuando está apagado
+    - `[anticlick $1(` prende o apaga (valor distinto a cero y cero, respectivamente) una rampa a 0 de 10ms antes de atacar nuevamente cuando legato está apagado que sirve para evitar generar un click por el inmediato salto al 0
     - `[state(` escribir en un mensaje el estado actual de la abstracción
 
 
