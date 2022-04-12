@@ -38,63 +38,66 @@
 #X obj 259 187 == 0;
 #X obj 292 254 r \$0-anticlick;
 #N canvas -8 -8 1366 685 help 0;
-#X obj 630 150 cnv 15 491 105 empty empty empty 20 12 0 14 -204800
+#X obj 630 150 cnv 15 506 105 empty empty empty 20 12 0 14 -204800
 -66577 0;
 #X msg 640 166 set foo;
-#X text 701 159 where foo stands for a list of every parameter properly
-formatted to be sent back into the abstraction \, in other words plug
-this outlet to a message and when the [state( mesage is received it
-will save to it the current state of the abstraction (keep in mind
-that the message box will be emptied before writing to it);
-#X obj 38 161 cnv 15 541 226 empty empty empty 20 12 0 14 -203904 -66577
+#X obj 38 174 cnv 15 519 247 empty empty empty 20 12 0 14 -203904 -66577
 0;
-#X obj 38 71 cnv 15 484 50 empty empty empty 20 12 0 14 -203904 -66577
+#X obj 38 71 cnv 15 484 63 empty empty empty 20 12 0 14 -203904 -66577
 0;
 #X text 35 47 INLET 0:;
-#X obj 629 71 cnv 15 121 39 empty empty empty 20 12 0 14 -204800 -66577
+#X obj 629 71 cnv 15 135 39 empty empty empty 20 12 0 14 -204800 -66577
 0;
 #X obj 639 81 sig~;
 #X text 626 47 OUTLET 0:;
 #X obj 48 87 float;
 #X text 627 126 OUTLET 1:;
-#X text 679 81 envelope;
-#X text 95 80 note velocity (between 0 and 1 \, unless you're not scared
-of the possibility of distortion or phase inversion);
-#X text 35 137 INLET 1:;
-#X text 102 171 attack time in ms;
-#X text 102 200 decay time in ms;
-#X text 101 268 release time in ms;
-#X msg 48 297 legato \$1;
-#X text 123 297 turns legato on and off (nonzero and 0 respectively)
+#X text 35 150 INLET 1:;
+#X msg 48 310 legato \$1;
+#X msg 48 344 anticlick \$1;
+#X msg 48 184 att \$1;
+#X msg 48 213 dec \$1;
+#X msg 48 247 sus \$1;
+#X msg 48 281 rel \$1;
+#X msg 48 392 state;
+#X text 679 81 envolvente;
+#X text 102 184 tiempo de ataque en ms;
+#X text 102 213 tiempo de decaimiento en ms;
+#X text 101 281 tiempo de relajación en ms;
+#X text 102 240 valor de sostenimiento (nuevamente entre 0 y 1 \, de
+lo contrario puede producirse distorsión y/o inversión de fase);
+#X text 95 392 escribir un mensaje con el estado actual de la abstracción
 ;
-#X msg 48 328 anticlick \$1;
-#X msg 48 171 att \$1;
-#X msg 48 200 dec \$1;
-#X msg 48 234 sus \$1;
-#X msg 48 268 rel \$1;
-#X text 95 358 save current state of the abstraction;
-#X msg 48 358 state;
-#X text 144 321 makes a 10ms ramp to 0 before attacking again when
-legato is turned off to avoid clicks (nonzero and 0 respectively);
-#X text 102 227 sustain value (again between 0 and 1 \, otherwise distortion
-or phase inversion could occur);
-#X connect 17 0 19 0;
-#X connect 19 0 25 0;
-#X connect 20 0 21 0;
-#X connect 21 0 22 0;
-#X connect 22 0 23 0;
-#X connect 23 0 17 0;
-#X restore 18 23 pd help;
-#X obj 543 147 r \$0-state;
-#X obj 543 176 outlet;
-#X obj 543 79 inlet;
-#N canvas 497 168 796 371 route-inlet-messages 0;
+#X text 95 80 velocity (entre 0 y 1 \, a menos que no se tema la distorsión
+en caso de valores mayores a 1 y menores a -1 o a la inversión de
+fase en caso de valores negativos);
+#X text 144 337 hacer o no una rampa de 10 ms hacia 0 antes de volver
+a atacar cuando legato esté apagado para evitar clicks (distinto de
+cero y 0 respectivamente) (por defecto 1);
+#X text 123 303 usar o no legato (distinto de cero y 0 respectivamente)
+(por defecto 0);
+#X text 701 159 donde foo representa una lista de todos los parámetros
+correctamente formateados para ser enviados de vuelta a la abstracción
+\, en otras palabras \, conectar esta salida a un mensaje y cuando
+la abstracción reciba el mensaje [state( se guardará el estado actual
+de la abstracción (tener en cuenta que el mensaje se vaciará antes
+de escribir en él);
+#X connect 11 0 12 0;
+#X connect 12 0 17 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 11 0;
+#X restore 1256 611 pd help;
+#X obj 386 526 r \$0-state;
+#X obj 386 555 outlet;
+#X obj 462 62 inlet;
+#N canvas -8 -8 1366 685 route-inlet-messages 0;
 #X obj 12 12 inlet;
-#X msg 53 291 unrecognized message;
-#X obj 53 247 r \$0-error;
-#X obj 53 271 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 17 570 r \$0-error;
+#X obj 17 594 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X msg 383 61 0;
+#X msg 344 61 0;
 #X obj 317 314 s \$0-error;
 #N canvas 676 0 681 676 state 0;
 #X obj 66 30 inlet;
@@ -132,33 +135,39 @@ or phase inversion could occur);
 #X connect 2 0 3 0;
 #X connect 4 0 3 0;
 #X restore 273 285 pd state;
-#X msg 418 61 1;
-#X obj 383 32 loadbang;
+#X msg 379 61 1;
+#X obj 344 32 loadbang;
 #X obj 12 61 route att dec sus rel legato anticlick state;
 #X obj 12 100 s \$0-att;
 #X obj 55 124 s \$0-dec;
 #X obj 99 100 s \$0-sus;
 #X obj 142 124 s \$0-rel;
-#X obj 53 320 print adsr~ INLET;
 #X obj 186 100 s \$0-legato-r;
 #X obj 229 124 s \$0-anticlick-r;
-#X connect 0 0 9 0;
-#X connect 1 0 14 0;
-#X connect 2 0 3 0;
-#X connect 3 0 1 0;
-#X connect 4 0 15 0;
-#X connect 7 0 16 0;
-#X connect 8 0 4 0;
-#X connect 8 0 7 0;
-#X connect 9 0 10 0;
-#X connect 9 1 11 0;
-#X connect 9 2 12 0;
-#X connect 9 3 13 0;
-#X connect 9 4 15 0;
-#X connect 9 5 16 0;
-#X connect 9 6 6 0;
-#X connect 9 7 5 0;
-#X restore 543 108 pd route-inlet-messages;
+#X msg 17 614 se recibió un mensaje desconocido;
+#X obj 17 643 print adsr~;
+#X text 432 23 acá se manipulan los mensajes de control de la abstracción
+\; se utiliza el objeto [route] para enviar el valor del mensaje a
+su respectivo [send] \, que enviará el valor a donde corresponda;
+#X text 100 563 cuando la abstracción reciba un mensaje desconocido
+\, se imprimirá un mensaje haciéndolo saber;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 15 0;
+#X connect 3 0 13 0;
+#X connect 6 0 14 0;
+#X connect 7 0 3 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 8 1 10 0;
+#X connect 8 2 11 0;
+#X connect 8 3 12 0;
+#X connect 8 4 13 0;
+#X connect 8 5 14 0;
+#X connect 8 6 5 0;
+#X connect 8 7 4 0;
+#X connect 15 0 16 0;
+#X restore 462 86 pd route-inlet-messages;
 #X obj 210 86 route float;
 #X obj 284 110 s \$0-error;
 #X obj 960 212 * 10;
@@ -168,6 +177,8 @@ or phase inversion could occur);
 #X obj 849 236 s \$0-legato;
 #X obj 849 159 r \$0-legato-r;
 #X obj 960 159 r \$0-anticlick-r;
+#X text 1022 578 abstracción para generar envolventes adsr \; \; dylan
+martin;
 #X connect 0 0 42 0;
 #X connect 1 0 8 0;
 #X connect 2 0 13 0;
