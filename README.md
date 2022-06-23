@@ -1,4 +1,4 @@
-# adsr
+# pd-adsr
 Objeto para generar envolventes adsr, inspirado en el objeto adsr~ de Max/MSP, desarrollado en [Pure Data](https://github.com/pure-data/pure-data).
 
 
